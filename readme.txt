@@ -1,4 +1,4 @@
-![numbo.png](https://i.postimg.cc/fyJ3y5V2/numbo.png)
+<img src="https://i.postimg.cc/fyJ3y5V2/numbo.png" alt="Numbo Image">
 
 (English)
 Numbo Calculator
