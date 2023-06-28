@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numbo Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"> 
+    <link rel="icon" href="./assets/tab_logo.ico">
+    <script>
+        function appendToDisplay(value) {
+            document.getElementById('result').value += value;
+        }
+        function calculate() {
+            var result = document.getElementById('result').value;
+            var calculatedResult = eval(result);
+            document.getElementById('result').value = calculatedResult;
+        }
+        function toggleSign() {
+            var result = document.getElementById('result').value;
+            if (result !== '' && result !== '0') {
+                if (result.charAt(0) === '-') {
+                    document.getElementById('result').value = result.substr(1);
+                } else {
+                    document.getElementById('result').value = '-' + result;
+                }
+            }
+        }
+        function calculatePercentage() {
+            var result = document.getElementById('result').value;
+            if (result !== '' && result !== '0') {
+                document.getElementById('result').value = eval(result + '/100');
+            }
+        }
+        function clearDisplay() {
+            document.getElementById('result').value = '';
+        }
+    </script>
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+    <style>
+         .title {
+            font-size: 36px;
+            text-align: center;
+        }
+
+        .title .numbo {
+            font-size: 40px;
+            color: #14bbad;
+        }
+
+        .title .calculator {
+            color: #02000ad2;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background-color: #14bbad;
+            border-radius: 7px;
+        }
+
+    </style>
+    <h1 class="title  wow animate__animated animate__fadeInDown"><span class="numbo">Numbo</span>
+                                                                 <span class="calculator">Calculator</span></h1>
+    <div class="numbo-calculator">
+      <input type="text" class="result" id="result" placeholder="N U M B O" readonly>
+      <div class="buttons">
+        <div class="button" onclick="appendToDisplay('7')">7</div>
+        <div class="button" onclick="appendToDisplay('8')">8</div>
+        <div class="button" onclick="appendToDisplay('9')">9</div>
+        <div class="button" onclick="appendToDisplay('/')">/</div>
+        <div class="button" onclick="appendToDisplay('4')">4</div>
+        <div class="button" onclick="appendToDisplay('5')">5</div>
+        <div class="button" onclick="appendToDisplay('6')">6</div>
+        <div class="button" onclick="appendToDisplay('*')">*</div>
+        <div class="button" onclick="appendToDisplay('1')">1</div>
+        <div class="button" onclick="appendToDisplay('2')">2</div>
+        <div class="button" onclick="appendToDisplay('3')">3</div>
+        <div class="button" onclick="appendToDisplay('-')">-</div>
+        <div class="button" onclick="appendToDisplay('0')">0</div>
+        <div class="button" onclick="appendToDisplay('.')">.</div>
+        <div class="button" onclick="toggleSign()">+/-</div>
+        <div class="button" onclick="appendToDisplay('+')">+</div>
+        <div class="button" onclick="calculatePercentage()">%</div>
+        <div class="button" onclick="clearDisplay()">AC</div>
+        <div class="button" id="button-equal" onclick="calculate()">=</div>
+      </div>
+    </div>
+    <script>
+      var resultInput = document.getElementById('result');
+      function appendToDisplay(value) {
+        resultInput.value += value;
+      }
+      function clearDisplay() {
+        resultInput.value = '';
+      }
+      function appendToDisplay(value) {
+      var currentValue = resultInput.value;
+      if (currentValue === "undefined") {
+      resultInput.value = value;
+      } else {
+      resultInput.value += value;
+  }
+}
+    </script>
+     <p class="version  wow animate__animated animate__fadeInDown"></p>
+    <footer>
+        <p class="rights  wow animate__animated animate__fadeInDown">&copy; 2023 Numbo by Lucia Casillas. All rights reserved.</p>
+        <p class="footer-description  wow animate__animated animate__fadeInDown">A powerful and user-friendly basic calculator for your everyday calculations.</p>
+      </footer>
+      <script>
+        var versionNumber = '1.0.0';
+        var versionElement = document.querySelector('.version');
+        versionElement.textContent = 'Numbo v ' + versionNumber;
+      </script>
+</body>
+</html>
